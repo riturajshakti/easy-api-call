@@ -86,9 +86,7 @@ function getApiResponseFromXhr(xhr: XMLHttpRequest): ApiResponse {
 		response
 	}
 
-	const type = xhr.responseType
-
-	if (type === 'json') {
+	if (xhr.responseType === 'json') {
 		result.json = xhr.response
 	}
 

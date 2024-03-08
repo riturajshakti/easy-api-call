@@ -4,26 +4,6 @@ import { defaultApiOptions } from './index'
 import { ApiOptions, ApiResponse } from './types'
 import { ReadStream } from 'fs'
 
-// ✅handle form data
-// ✅http/https
-// interface ApiOptions {
-// 	✅method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS' | 'HEAD'
-// 	✅regularBody?: any
-// 	✅jsonBody?: any
-// 	✅headers?: Record<string, string>
-// 	✅urlSearchParams?: Record<string, any>
-// 	✅uploadProgress?: (uploadedPercentage: number) => any
-// }
-
-// interface ApiResponse {
-// 	✅ok: boolean
-// 	✅statusCode: number
-// 	✅statusMessage: string
-// 	✅headers: Record<string, string>
-// 	✅response: any
-// 	✅json?: JSON
-// }
-
 async function apiCallHttp(url: string, options: ApiOptions = defaultApiOptions): Promise<any> {
 	if (options.urlSearchParams) {
 		const [urlString, queryString] = url.split('?')
@@ -156,7 +136,6 @@ async function getFormDataString(formData: FormData, boundary: string) {
 	return parts.join('\r\n') + `\r\n--${boundary}--\r\n`
 }
 
-// Helper function to convert a ReadStream to a string asynchronously
 function streamToString(stream: ReadStream): Promise<string> {
 	return new Promise((resolve, reject) => {
 		let data = ''

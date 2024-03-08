@@ -13,10 +13,8 @@ export const defaultApiOptions: ApiOptions = {
 
 async function apicall(url: string, options?: ApiOptions): Promise<ApiResponse> {
   if(typeof window === undefined) {
-    // browser environment, running xhr call
     return await apicallXhr(url, options)
   } else {
-    // server environment, running http(s) call
     return await apicallHttp(url, options)
   }
 }
