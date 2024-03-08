@@ -38,7 +38,7 @@ async function apicallXhr(url: string, options: ApiOptions = defaultApiOptions):
 
 			xhr.onreadystatechange = function () {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
-					if (xhr.status === 200) {
+					if (xhr.status >= 200 && xhr.status <= 299) {
 						resolve(xhr)
 					} else {
 						reject(xhr)
@@ -69,7 +69,7 @@ function getApiResponseFromXhr(xhr: XMLHttpRequest): ApiResponse {
 	for (const header of headersList) {
 		const [headerName, ...headerValueParts] = header.split(': ')
 		const headerValue = headerValueParts.join(': ')
-		headers[headerName] = headerValue
+		headers[headerName] = headerValue.trim()
 	}
 
 	const response = new Response(xhr.response, {
