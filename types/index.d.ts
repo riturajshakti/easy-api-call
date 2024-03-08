@@ -1,5 +1,5 @@
 // types/index.d.ts
-declare module 'api-call' {
+declare module 'easy-api-call' {
 	export interface ApiOptions {
 		method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS' | 'HEAD'
 		regularBody?: any
@@ -18,5 +18,5 @@ declare module 'api-call' {
 		json?: JSON
 	}
 
-	export default function apicall(url: string, options?: ApiOptions): ApiResponse;
+	export default function apicall(url: string, options?: ApiOptions): Promise<ApiResponse>;
 }

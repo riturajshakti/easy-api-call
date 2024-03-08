@@ -12,7 +12,7 @@ export const defaultApiOptions: ApiOptions = {
 } as const
 
 async function apicall(url: string, options?: ApiOptions): Promise<ApiResponse> {
-  if(typeof window === undefined) {
+  if(typeof window !== 'undefined') {
     return await apicallXhr(url, options)
   } else {
     return await apicallHttp(url, options)

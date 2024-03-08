@@ -32,8 +32,8 @@ npm i easy-api-call
 import apicall from 'easy-api-call'
 
 apicall('https://jsonplaceholder.typicode.com/posts/1')
-	.then((e) => console.log(e.json))
-	.catch((e) => console.error('Error:', e))
+  .then((e) => console.log(e.json))
+  .catch((e) => console.error('Error:', e))
 ```
 
 Sample Output:
@@ -53,15 +53,15 @@ Sample Output:
 import apicall from 'easy-api-call'
 
 apicall('https://jsonplaceholder.typicode.com/posts', {
-	method: 'POST',
-	jsonBody: {
-		title: 'foo',
+  method: 'POST',
+  jsonBody: {
+    title: 'foo',
     body: 'bar',
     userId: 1,
-	}
+  }
 })
-	.then((e) => console.log(e.json))
-	.catch((e) => console.error('Error:', e))
+  .then((e) => console.log(e.json))
+  .catch((e) => console.error('Error:', e))
 ```
 
 This is the output you'll receive:
@@ -85,18 +85,18 @@ formData.append('name', 'john doe')
 formData.append('file', myFileObject)
 
 apicall('https://api.example.com/files', {
-	method: 'PUT',
-	headers: {
-		'x-api-key': '123'
-	},
-	regularBody: formData,
-	urlSearchParams: {
-		renameFile: 'yes'
-	},
-	uploadProgress: (percent) => console.log(`${percent}% uploaded`)
+  method: 'PUT',
+  headers: {
+    'x-api-key': '123'
+  },
+  regularBody: formData,
+  urlSearchParams: {
+    renameFile: 'yes'
+  },
+  uploadProgress: (percent) => console.log(`${percent}% uploaded`)
 })
-	.then((e) => console.log(e.statusCode, e.statusMessage, e.json))
-	.catch((e) => console.error('Error:', e))
+  .then((e) => console.log(e.statusCode, e.statusMessage, e.json))
+  .catch((e) => console.error('Error:', e))
 ```
 
 
