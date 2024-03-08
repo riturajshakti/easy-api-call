@@ -1,0 +1,31 @@
+{
+  "name": "easy-api-call",
+  "version": "0.0.1",
+  "description": "A Zero dependency npm package which is the simplified version of fetch API and axios API build on top of Promise API compatible on both browser and servers. On browser it uses XMLHttpRequest and on node environment it uses http/https module",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "dev": "nodemon dist/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riturajshakti/easy-api-call.git"
+  },
+  "keywords": [
+    "fetch",
+    "axios",
+    "xhr",
+    "XMLHttpRequest",
+    "http",
+    "https"
+  ],
+  "author": "Rituraj Shakti",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.3.3"
+  }
+}

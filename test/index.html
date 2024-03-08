@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="file" id="file-input" />
+		<button onclick="uploadFile()">Upload</button>
+
+		<script src="./test.js"></script>
+		<script>
+			function uploadFile() {
+				const fileInput = document.getElementById('file-input')
+				const file = fileInput.files[0]
+
+				const fd = new FormData()
+				fd.append('file', file)
+
+				apicall('https://jsonplaceholder.typicode.com/posts?name=raj', {
+					method: 'POST',
+					// regularBody: fd,
+					jsonBody: {
+						title: 'foo',
+						body: 'bar',
+						userId: 1
+					},
+					uploadProgress: (v) => console.log(v),
+					urlSearchParams: {
+						age: 20,
+						address: '42, 7A, baker street'
+					}
+				})
+					.then(console.log)
+					.catch((e) => console.error('Error:', e))
+			}
+
+			// const fd = new FormData()
+			// fd.append('file', new File('./index.js'))
+			// apicall('https://jsonplaceholder.typicode.com/posts', {
+			// 	method: 'POST',
+			// 	regularBody: fd,
+			// 	uploadProgress: (v) => console.log(v)
+			// })
+			// 	.then(console.log)
+			// 	.catch((e) => console.error('Error:', e))
+		</script>
+	</body>
+</html>
